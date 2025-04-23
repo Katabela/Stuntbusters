@@ -10,7 +10,7 @@ import os
 load_dotenv(override=True)
 
 # Create the Flask app
-app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__, template_folder="app/templates", static_folder="app/static")
 
 # Set config values directly from environment
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")

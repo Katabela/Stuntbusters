@@ -1,0 +1,27 @@
+/* main.css */
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Default hover color for all links */
+a:hover {
+  color: #22c55e; /* Tailwind's green-500 */
+}
+
+/* Optional: For button-style links */
+a.button-link {
+  background-color: #86efac; /* Tailwind's lime-400 */
+  color: black;
+  padding: 0.75rem 2rem;
+  font-weight: bold;
+  border-radius: 0.75rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+a.button-link:hover {
+  background-color: #4ade80; /* Tailwind's green-400 */
+}

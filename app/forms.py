@@ -3,11 +3,12 @@ from wtforms import StringField, TextAreaField, FileField
 from wtforms.validators import DataRequired, Email
 
 class StuntForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    skill_name = StringField('Skill Name', validators=[DataRequired()])
-    issue_desc = TextAreaField('Issue Description', validators=[DataRequired()])
-    flyer_view = TextAreaField("Flyer’s View")
-    base_view = TextAreaField("Base’s View")
-    video1 = FileField('Video 1')
-    video2 = FileField('Video 2')
-    video3 = FileField('Video 3')
+    email = StringField("Email", validators=[DataRequired(), Email()])
+    skill_name = StringField("Skill Name", validators=[DataRequired()])
+    issue_desc = TextAreaField("Describe the Issue", validators=[DataRequired()])
+    flyer_view = TextAreaField("Flyer's Perspective", validators=[DataRequired()])
+    base_view = TextAreaField("Base's Perspective", validators=[DataRequired()])
+    
+    video_1 = FileField("Upload Video 1")
+    video_2 = FileField("Upload Video 2")
+    video_3 = FileField("Upload Video 3")

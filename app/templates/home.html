@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stunt Busters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
+    <!-- Navigation -->
+    <nav class="flex justify-between items-center p-6 bg-gray-800 shadow-lg">
+      <h1 class="text-3xl font-extrabold tracking-tight">STUNT BUSTERS</h1>
+      <ul class="flex space-x-6 text-lg">
+        <li><a href="#about" class="hover:text-lime-400">About</a></li>
+        <li><a href="#services" class="hover:text-lime-400">Services</a></li>
+        <li><a href="#contact" class="hover:text-lime-400">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative flex items-center justify-center h-screen text-center bg-cover bg-center"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1586123310401-9682dd8c0718');
+      "
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+      <div class="z-10 px-6">
+        <h2 class="text-5xl md:text-7xl font-bold mb-6">Who You Gonna Call?</h2>
+        <p class="text-xl md:text-2xl mb-8 text-white-300">
+          We troubleshoot cheer stunts, fight falls, and rescue routines.
+        </p>
+        <a
+          href="{{ url_for('main.submit') }}"
+          class="bg-lime-400 hover:bg-lime-500 text-black px-8 py-3 rounded-xl font-bold text-lg transition duration-300"
+        >
+          Book a Busting Session
+        </a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 px-6 max-w-4xl mx-auto">
+      <h3 class="text-4xl font-semibold text-center mb-10">
+        About Stunt Busters
+      </h3>
+      <p class="text-lg text-gray-300 leading-relaxed text-center">
+        We’re a team of seasoned stunt troubleshooters who know how to fix the
+        toughest partner stunts, pyramids, and basket tosses. Whether you're
+        prepping for nationals or just want to land clean and confident, we’ve
+        got your back (literally).
+      </p>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="bg-gray-800 py-20 px-6">
+      <h3 class="text-4xl font-semibold text-center mb-12">Our Services</h3>
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto text-center"
+      >
+        <div class="bg-gray-900 p-8 rounded-2xl shadow-xl">
+          <h4 class="text-2xl font-bold mb-4 text-lime-300">
+            Stunt Diagnostics
+          </h4>
+          <p>
+            We break down your stunts frame-by-frame to identify what’s not
+            working and why.
+          </p>
+        </div>
+        <div class="bg-gray-900 p-8 rounded-2xl shadow-xl">
+          <h4 class="text-2xl font-bold mb-4 text-lime-300">
+            Technique Tuning
+          </h4>
+          <p>
+            Hands-on training sessions or video calls to polish grips, timing,
+            and transitions.
+          </p>
+        </div>
+        <div class="bg-gray-900 p-8 rounded-2xl shadow-xl">
+          <h4 class="text-2xl font-bold mb-4 text-lime-300">
+            Emergency Busting
+          </h4>
+          <p>
+            Need a last-minute fix before a comp? Call us. We’ll walk you
+            through a fix—fast.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact
+    <section id="contact" class="py-20 px-6 max-w-3xl mx-auto text-center">
+      <h3 class="text-4xl font-semibold mb-6">Contact the Busters</h3>
+      <p class="text-lg text-gray-300 mb-8">
+        Slide into our inbox or scream "STUNT BUSTERS!" really loud. We'll
+        probably still reply faster by email.
+      </p>
+      <form class="space-y-6">
+        <input
+          type="text"
+          placeholder="Your Name"
+          class="w-full p-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-lime-400"
+        />
+        <input
+          type="email"
+          placeholder="Your Email"
+          class="w-full p-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-lime-400"
+        />
+        <textarea
+          placeholder="Tell us what's going wrong..."
+          class="w-full p-4 rounded-lg bg-gray-800 text-white h-32 focus:outline-none focus:ring-2 focus:ring-lime-400"
+        ></textarea>
+        <button
+          class="bg-lime-400 hover:bg-lime-500 text-black px-8 py-3 rounded-xl font-bold text-lg transition duration-300"
+        >
+          Bust This Stunt
+        </button>
+      </form>
+    </section> -->
+
+    <footer class="bg-gray-800 text-center text-gray-500 py-6 mt-10">
+      © 2025 Stunt Busters. No ghosts harmed in the making of this site.
+    </footer>
+  </body>
+</html>
