@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, request
 from .forms import StuntForm
 from .models import db, User, StuntSubmission
 from flask_mail import Message
+from .email import send_oauth_email
 from . import mail
 
 main = Blueprint('main', __name__)
@@ -36,18 +37,13 @@ def submit():
         db.session.add(submission)
         db.session.commit()
 
-        msg = Message(
+        # Send confirmation email
+        send_oauth_email(
+            to_email=email,
             subject="Stunt Fix Request Submitted",
-            sender="your_email@gmail.com",
-            recipients=[email],
-            body="Thanks for submitting your Stunt Fix request! We'll get back to you within two days."
+            body_text="Thanks for submitting your Stunt Fix request! We'll get back to you within two days."
         )
-        mail.send(msg)
 
         return redirect(url_for('main.thank_you'))
 
     return render_template('form.html', form=form)
-
-@main.route('/thank-you')
-def thank_you():
-    return render_template('thank_you.html')
