@@ -13,10 +13,7 @@ def create_app(environment="production"):
     app = Flask(__name__, instance_relative_config=True)
 
     # Load configurations based on the environment
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URI")
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-    app.config["DEBUG"] = environment == "development"
-    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+    app.config.from_object(Config)
 
     db.init_app(app)
     mail.init_app(app)
