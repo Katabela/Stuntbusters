@@ -2,7 +2,6 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 from flask_wtf.csrf import CSRFProtect
-from instance.config import Config
 import os
 
 db = SQLAlchemy()
@@ -10,7 +9,7 @@ mail = Mail()
 csrf = CSRFProtect()
 
 def create_app(environment="production"):
-    app = Flask(__name__, instance_relative_config=True)
+    app = Flask(__name__)
 
      # Base Config from .env
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")
