@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask
+instance/
+.env
+.env.local
+.env.*.local
+
+# OAuth / Gmail API secrets
+client_secret.json
+tokens.json
+
+# Database (local)
+*.sqlite3
+*.db
+
+# System
+.DS_Store
+Thumbs.db
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# PyInstaller
+*.spec
+
+# Migrations cache
+migrations/versions/
+
+# Logs
+*.log
+
+# Node.js (if you ever add Tailwind/npm)
+node_modules/
+dist/
