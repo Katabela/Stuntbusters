@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, redirect, url_for, request
-from .forms import StuntForm
-from .models import db, User, StuntSubmission
+from ..forms import StuntForm
+from ..models import db, User, StuntSubmission
 from flask_mail import Message
-from .email import send_oauth_email
-from . import mail
+from ..email import send_oauth_email
+from .. import mail
 
 main = Blueprint('main', __name__)
 

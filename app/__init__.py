@@ -12,7 +12,7 @@ csrf = CSRFProtect()
 def create_app(environment="production"):
     app = Flask(__name__, instance_relative_config=True)
 
-     # Load configurations based on the environment
+    # Load configurations based on the environment
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URI")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["DEBUG"] = environment == "development"
@@ -22,7 +22,7 @@ def create_app(environment="production"):
     mail.init_app(app)
     csrf.init_app(app)
 
-    from .routes import main
+    from .routes.main_routes import main
     app.register_blueprint(main)
 
     from . import models
