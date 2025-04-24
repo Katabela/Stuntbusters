@@ -5,15 +5,22 @@ import os
 
 load_dotenv(override=True)
 
-app = create_app()
+# Detect environment
+environment = os.getenv("ENV", "production")
+
+# Create the Flask app using the factory
+app = create_app(environment)
+
 migrate = Migrate(app, db)
 
-# Use Livereload only in development
-if os.getenv("FLASK_ENV") == "development":
-    from livereload import Server
-    server = Server(app.wsgi_app)
-    server.watch("app/**/*.py")
-    server.watch("app/templates/**/*.html")
-    server.watch("app/static/**/*.css")
-    server.serve(port=5000)
-
+if __name__ == "__main__":
+	# Use livereload for development environment
+    if environment == "development":
+        server = Server(app.wsgi_app)
+        server.watch("core/**/*.py")
+        server.watch("core/**/*.html")
+        server.watch("core/**/*.css")
+        server.serve(port=5000)  # Start the server with livereload
+    else:
+        # Run in standard mode for production
+        app.run(port=5000)
