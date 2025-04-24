@@ -23,5 +23,4 @@ if __name__ == "__main__":
         server.watch("app/static/**/*.css")
         server.serve(port=5000)
     else:
-        # Run in standard mode for production
-        app.run(port=5000)
+        app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
