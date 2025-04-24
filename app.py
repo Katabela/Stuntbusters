@@ -18,10 +18,10 @@ if __name__ == "__main__":
 	# Use livereload for development environment
     if environment == "development":
         server = Server(app.wsgi_app)
-        server.watch("core/**/*.py")
-        server.watch("core/**/*.html")
-        server.watch("core/**/*.css")
-        server.serve(port=5000)  # Start the server with livereload
+        server.watch("app/**/*.py")
+        server.watch("app/templates/**/*.html")
+        server.watch("app/static/**/*.css")
+        server.serve(port=5000)
     else:
         # Run in standard mode for production
         app.run(port=5000)
