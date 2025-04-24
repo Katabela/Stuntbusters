@@ -1,38 +1,25 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_mail import Mail
-from flask_wtf.csrf import CSRFProtect
-from dotenv import load_dotenv
+from app import create_app, db
+from flask_migrate import Migrate
 from livereload import Server
+from dotenv import load_dotenv
 import os
 
-# Load environment variables from .env file
+# Load env vars
 load_dotenv(override=True)
 
-# Create the Flask app
-app = Flask(__name__, template_folder="app/templates", static_folder="app/static")
+# Create the app using your factory
+app = create_app()
 
-# Set config values directly from environment
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+# Attach migrations to the app
+migrate = Migrate(app, db)
 
-# Initialize extensions
-db = SQLAlchemy(app)
-mail = Mail(app)
-csrf = CSRFProtect(app)
-
-# Import and register blueprints
-from app.routes import main
-app.register_blueprint(main)
-
-# Run the app
+# Dev server with live reload
 if __name__ == "__main__":
-    if os.getenv("ENV") == "development":
+    if os.getenv("FLASK_ENV") == "development":
         server = Server(app.wsgi_app)
         server.watch("app/**/*.py")
         server.watch("app/templates/**/*.html")
         server.watch("app/static/**/*.css")
         server.serve(port=5000)
     else:
-        app.run(host="0.0.0.0", port=5000)
+        app.run(port=5000)
