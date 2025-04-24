@@ -19,4 +19,5 @@ if __name__ == "__main__":
         server.watch("app/static/**/*.css")
         server.serve(port=5000)
     else:
-        app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
+        # app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
+        app.run(port=5000)
