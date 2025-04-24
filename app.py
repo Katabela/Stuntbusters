@@ -4,13 +4,10 @@ from livereload import Server
 from dotenv import load_dotenv
 import os
 
-# Load env vars
 load_dotenv(override=True)
 
-# Create the app using your factory
 app = create_app()
 
-# Attach migrations to the app
 migrate = Migrate(app, db)
 
 # Dev server with live reload
@@ -22,4 +19,4 @@ if __name__ == "__main__":
         server.watch("app/static/**/*.css")
         server.serve(port=5000)
     else:
-        app.run(port=5000)
+        app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
